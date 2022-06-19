@@ -44,11 +44,12 @@ class SignInAct : AppCompatActivity() {
         binding.bSignin.setOnClickListener {
             signInWithGoogle()
         }
+        CheckAuthState()
     }
         fun getClient(): GoogleSignInClient {
             val gso = GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("455406420355-avug27gmg96g0tb46tc11alc24jsav5t.apps.googleusercontent.com")
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
             return GoogleSignIn.getClient(this, gso)
@@ -64,9 +65,17 @@ class SignInAct : AppCompatActivity() {
             auth.signInWithCredential(credential).addOnCompleteListener {
                 if (it.isSuccessful) {
                     Log.d("MyLog", "Google signIn done")
+                    CheckAuthState()
                 } else {
                     Log.d("MyLog", "Google signIn error")
                 }
             }
         }
+    private fun CheckAuthState(){
+        if(auth.currentUser != null){
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+        }
+
+    }
 }

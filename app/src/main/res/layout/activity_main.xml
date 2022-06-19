@@ -32,18 +32,15 @@
         app:layout_constraintStart_toStartOf="parent"
         android:autofillHints="" />
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcView"
-        android:layout_width="410dp"
-        android:layout_height="578dp"
-        android:text="Hello epta"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/bSend"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="@+id/bSend"
+        android:layout_width="0dp"
+        android:layout_height="580dp"
+        app:layout_constraintBottom_toTopOf="@+id/bSend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:visibility="visible" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
